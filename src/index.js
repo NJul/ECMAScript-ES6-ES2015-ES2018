@@ -1,3 +1,4 @@
-import './scripts/script-joke';
+import "./scripts/script-joke";
+import "./scripts/default-parameters";
 
-import './css/style.css';
+import "./css/style.css";
