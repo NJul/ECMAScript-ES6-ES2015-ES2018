@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -178,12 +178,42 @@ module.exports = [{"body":"A recent study has found that women who carry a littl
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+// Параметры по-умолчанию
+// (Default Parameters)
+// function f( a = 10, b = 20 ) {}
+// Устанавливаются, если не передать значение (или передать undefined)
+// Чаще всего идут последними в списке
+// Могут иметь любой тип
+function fetchOrders() {
+  var count = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 10;
+  var start = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  console.log("Getting", count, "orders starting from", start);
+}
+
+fetchOrders();
+
+function findProducts() {
+  var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+    minPrice: 10,
+    maxPrice: 20
+  };
+  console.log(opts);
+} // Если мы передадим объект, даже пустой, то значения по-умолчанию не будут смешиваться
+// findProducts({});
+
+
+findProducts();
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -203,10 +233,14 @@ window.onload = function () {
   var tags = getRandomJoke.tags;
   document.getElementById('tags').innerHTML = tags.join(", ");
 };
+// EXTERNAL MODULE: ./src/scripts/default-parameters.js
+var default_parameters = __webpack_require__(2);
+
 // EXTERNAL MODULE: ./src/css/style.css
-var style = __webpack_require__(2);
+var style = __webpack_require__(3);
 
 // CONCATENATED MODULE: ./src/index.js
+
 
 
 
