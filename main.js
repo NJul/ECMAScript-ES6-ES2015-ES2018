@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -208,12 +208,42 @@ findProducts();
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports) {
+
+// Rest parameter
+// Обязан идти последним, должен быть только один rest parameter
+function max(a, b) {
+  for (var _len = arguments.length, numbers = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+    numbers[_key - 2] = arguments[_key];
+  }
+
+  console.log(numbers);
+}
+/* ниже 3 будет единственным аргументом массива numbers */
+
+
+max(1, 2, 3);
+/* function max() {
+  // pseudo-array
+  var numbers = Array.prototype.slice.call(arguments);
+} */
+
+/*
+finction f(a, b, ...others) {}
+Всегда массив, может быть пустым
+Получает аргументы, которые не были присвоены обычным параметрам
+Должен быть последним в списке
+Максимум один rest-параметр в функции
+*/
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -236,10 +266,14 @@ window.onload = function () {
 // EXTERNAL MODULE: ./src/scripts/default-parameters.js
 var default_parameters = __webpack_require__(2);
 
+// EXTERNAL MODULE: ./src/scripts/rest.js
+var rest = __webpack_require__(3);
+
 // EXTERNAL MODULE: ./src/css/style.css
-var style = __webpack_require__(3);
+var style = __webpack_require__(4);
 
 // CONCATENATED MODULE: ./src/index.js
+
 
 
 
