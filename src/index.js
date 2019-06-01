@@ -1,5 +1,5 @@
 import "./scripts/script-joke";
-import "./scripts/default-parameters";
-import "./scripts/rest";
+
+import "./scripts/array-destructuring";
 
 import "./css/style.css";

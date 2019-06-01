@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -180,70 +180,95 @@ module.exports = [{"body":"A recent study has found that women who carry a littl
 /* 2 */
 /***/ (function(module, exports) {
 
-// Параметры по-умолчанию
-// (Default Parameters)
-// function f( a = 10, b = 20 ) {}
-// Устанавливаются, если не передать значение (или передать undefined)
-// Чаще всего идут последними в списке
-// Могут иметь любой тип
-function fetchOrders() {
-  var count = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 10;
-  var start = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-  console.log("Getting", count, "orders starting from", start);
-}
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
-fetchOrders();
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
 
-function findProducts() {
-  var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
-    minPrice: 10,
-    maxPrice: 20
-  };
-  console.log(opts);
-} // Если мы передадим объект, даже пустой, то значения по-умолчанию не будут смешиваться
-// findProducts({});
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-findProducts();
+// Array Destructuring
+var fib = [1, 1, 2, 3, 5, 8, 13]; // const [a, b, c] = fib;
+
+var c = fib[1],
+    d = fib[3]; // console.log(a, b, c);
+
+console.log(c, d);
+var line = [[10, 17], [14, 7]];
+
+var _line$ = _slicedToArray(line[0], 2),
+    p1x = _line$[0],
+    p1y = _line$[1],
+    _line$2 = _slicedToArray(line[1], 2),
+    p2x = _line$2[0],
+    p2y = _line$2[1];
+
+console.log(p1x, p1y, p2x, p2y);
+var people = ['Chris', 'Sandra'];
+var f = people[0],
+    g = people[1],
+    _people$ = people[2],
+    h = _people$ === void 0 ? 'guest' : _people$;
+console.log(f, g, h);
+var people2 = ['Chris', 'Sandra', 'Bob', 'Alek'];
+var a = people2[0],
+    others = people2.slice(1);
+console.log(others);
+var dict = {
+  duck: 'quack',
+  dog: 'wuff',
+  mouse: 'squeak',
+  hamster: 'squeak'
+};
+/* Нам нужно получить все ключи и значения одновременно. */
+
+/* Эта функция принимает объект, возвращается двумерный массив. */
+
+var res = Object.entries(dict).filter(function (_ref) {
+  var _ref2 = _slicedToArray(_ref, 2),
+      value = _ref2[1];
+
+  return value === 'squeak';
+}).map(function (_ref3) {
+  var _ref4 = _slicedToArray(_ref3, 1),
+      key = _ref4[0];
+
+  return key;
+});
+console.log(res);
+/* Синтаксис деструктуризации позволяет вам комбинировать деструктуризацию для массивов и дестрктуризацию для объектов. */
+
+var shape = {
+  type: 'segment',
+  coordinates: {
+    start: [10, 15],
+    end: [17, 15]
+  }
+};
+
+var _shape$coordinates = shape.coordinates,
+    _shape$coordinates$st = _slicedToArray(_shape$coordinates.start, 2),
+    startX = _shape$coordinates$st[0],
+    startY = _shape$coordinates$st[1],
+    _shape$coordinates$en = _slicedToArray(_shape$coordinates.end, 2),
+    endX = _shape$coordinates$en[0],
+    endY = _shape$coordinates$en[1];
+
+console.log(startX, startY, endX, endY); // Деструктуризация массивов
+// const [a, , b] = [1, 2, 3]
+// Поддерживает все те же возможности, что и объекты
+// Можно пропускать значения
+// Можно использовать синтаксис деструктуризации для массивов и объектов в одном выражении
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports) {
-
-// Rest parameter
-// Обязан идти последним, должен быть только один rest parameter
-function max(a, b) {
-  for (var _len = arguments.length, numbers = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-    numbers[_key - 2] = arguments[_key];
-  }
-
-  console.log(numbers);
-}
-/* ниже 3 будет единственным аргументом массива numbers */
-
-
-max(1, 2, 3);
-/* function max() {
-  // pseudo-array
-  var numbers = Array.prototype.slice.call(arguments);
-} */
-
-/*
-finction f(a, b, ...others) {}
-Всегда массив, может быть пустым
-Получает аргументы, которые не были присвоены обычным параметрам
-Должен быть последним в списке
-Максимум один rest-параметр в функции
-*/
-
-/***/ }),
-/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -263,17 +288,13 @@ window.onload = function () {
   var tags = getRandomJoke.tags;
   document.getElementById('tags').innerHTML = tags.join(", ");
 };
-// EXTERNAL MODULE: ./src/scripts/default-parameters.js
-var default_parameters = __webpack_require__(2);
-
-// EXTERNAL MODULE: ./src/scripts/rest.js
-var rest = __webpack_require__(3);
+// EXTERNAL MODULE: ./src/scripts/array-destructuring.js
+var array_destructuring = __webpack_require__(2);
 
 // EXTERNAL MODULE: ./src/css/style.css
-var style = __webpack_require__(4);
+var style = __webpack_require__(3);
 
 // CONCATENATED MODULE: ./src/index.js
-
 
 
 
