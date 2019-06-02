@@ -1,5 +1,5 @@
 import "./scripts/script-joke";
 
-import "./scripts/array-destructuring";
+import "./scripts/template-literals";
 
 import "./css/style.css";
