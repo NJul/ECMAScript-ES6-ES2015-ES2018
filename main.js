@@ -180,86 +180,23 @@ module.exports = [{"body":"A recent study has found that women who carry a littl
 /* 2 */
 /***/ (function(module, exports) {
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+// Template Literals
+var user = 'Bob';
+var num = 17;
+var txt = 'Hello, ' + user + ', you have ' + num + ' letters in your inbox';
+var txt2 = "Hello, ".concat(user, ", you have ").concat(num, " letters in your inbox. ").concat(10 + 5, ". Now is ").concat(Date.now());
+var items = ['tea', 'coffee'];
+var menu = "\n  <ul>\n    <li>".concat(items[0], "</li>\n    <li>").concat(items[1], "</li>\n  </ul>\n");
+console.log(txt);
+console.log(txt2);
+console.log(menu); // Шаблонные строки
 
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
-
-function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-// Array Destructuring
-var fib = [1, 1, 2, 3, 5, 8, 13]; // const [a, b, c] = fib;
-
-var c = fib[1],
-    d = fib[3]; // console.log(a, b, c);
-
-console.log(c, d);
-var line = [[10, 17], [14, 7]];
-
-var _line$ = _slicedToArray(line[0], 2),
-    p1x = _line$[0],
-    p1y = _line$[1],
-    _line$2 = _slicedToArray(line[1], 2),
-    p2x = _line$2[0],
-    p2y = _line$2[1];
-
-console.log(p1x, p1y, p2x, p2y);
-var people = ['Chris', 'Sandra'];
-var f = people[0],
-    g = people[1],
-    _people$ = people[2],
-    h = _people$ === void 0 ? 'guest' : _people$;
-console.log(f, g, h);
-var people2 = ['Chris', 'Sandra', 'Bob', 'Alek'];
-var a = people2[0],
-    others = people2.slice(1);
-console.log(others);
-var dict = {
-  duck: 'quack',
-  dog: 'wuff',
-  mouse: 'squeak',
-  hamster: 'squeak'
-};
-/* Нам нужно получить все ключи и значения одновременно. */
-
-/* Эта функция принимает объект, возвращается двумерный массив. */
-
-var res = Object.entries(dict).filter(function (_ref) {
-  var _ref2 = _slicedToArray(_ref, 2),
-      value = _ref2[1];
-
-  return value === 'squeak';
-}).map(function (_ref3) {
-  var _ref4 = _slicedToArray(_ref3, 1),
-      key = _ref4[0];
-
-  return key;
-});
-console.log(res);
-/* Синтаксис деструктуризации позволяет вам комбинировать деструктуризацию для массивов и дестрктуризацию для объектов. */
-
-var shape = {
-  type: 'segment',
-  coordinates: {
-    start: [10, 15],
-    end: [17, 15]
-  }
-};
-
-var _shape$coordinates = shape.coordinates,
-    _shape$coordinates$st = _slicedToArray(_shape$coordinates.start, 2),
-    startX = _shape$coordinates$st[0],
-    startY = _shape$coordinates$st[1],
-    _shape$coordinates$en = _slicedToArray(_shape$coordinates.end, 2),
-    endX = _shape$coordinates$en[0],
-    endY = _shape$coordinates$en[1];
-
-console.log(startX, startY, endX, endY); // Деструктуризация массивов
-// const [a, , b] = [1, 2, 3]
-// Поддерживает все те же возможности, что и объекты
-// Можно пропускать значения
-// Можно использовать синтаксис деструктуризации для массивов и объектов в одном выражении
+/*
+const s = `My name is ${getName}`
+Поддерживают выражения, вызовы функций
+Поддерживают перенос строки
+Результат - обычная строка (не новый тип)
+*/
 
 /***/ }),
 /* 3 */
@@ -288,8 +225,8 @@ window.onload = function () {
   var tags = getRandomJoke.tags;
   document.getElementById('tags').innerHTML = tags.join(", ");
 };
-// EXTERNAL MODULE: ./src/scripts/array-destructuring.js
-var array_destructuring = __webpack_require__(2);
+// EXTERNAL MODULE: ./src/scripts/template-literals.js
+var template_literals = __webpack_require__(2);
 
 // EXTERNAL MODULE: ./src/css/style.css
 var style = __webpack_require__(3);
