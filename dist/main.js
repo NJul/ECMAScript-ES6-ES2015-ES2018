@@ -180,62 +180,37 @@ module.exports = [{"body":"A recent study has found that women who carry a littl
 /* 2 */
 /***/ (function(module, exports) {
 
-var _data;
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-// Objects
-var x = 10;
-var y = 30; // Старый синтаксис
-
-var point = {
-  x: x,
-  y: y,
-  draw: function draw() {// ...
-  }
-}; // Новый синтаксис, если имя переменной и свойство совпадают:
-// Обычная функция, которая написана более лаконичным синтаксисом
-
-var p = {
-  x: x,
-  y: y,
-  draw: function draw(ctx) {//
-  }
-};
-var prefix = '_blah_'; // Создаем объект, _blah_name, _blah_age
-
-var data = (_data = {}, _defineProperty(_data, prefix + 'name', 'Bob'), _defineProperty(_data, prefix + 'age', 23), _data);
-console.log(data); // Функция, которая позволяет копировать свойства
-
+// Spread operator for Objects - 2018 year
 var defaults = {
   host: 'localhost',
   dbName: 'blog',
   user: 'admin'
 };
+/* Эти данные переданы от пользователя и должны быть более приоритетны параметров по умолчанию. Свойства из opts перезапишут свойсва defaults */
+
 var opts = {
   user: 'john',
   password: 'utopia'
-};
-/* В результате у нас получился объект res, который имеет все свойства из defaults, и все свойства из opts */
+}; // const result = Object.assign({}, defaults, opts);
 
-var res = Object.assign({}, defaults, opts);
-console.log(res);
-/* Поверхностная копия, если в friends появится новый друг, то он появится и в shallowCopy, они используют один и тот же массив. */
+/* Раскрывается списко ключей - значений, которые будут присвоен другому объекту. */
+// const res = { ...defaults, ...opts };
 
-var person = {
-  name: 'Bob',
-  friends: ['Mark', 'Jacob', 'Oleg']
-};
-var shallowCopy = Object.assign({}, person);
-person.friends.push('Jane');
-console.log(shallowCopy);
-/*
-Объекты в ES-2015 +
-const a {x, y}
-const a = { sayHi() { ... }}
-const a = { [dynamicKey]: value}
-const res = Object.assign (dest, src1, src2 ...)
-*/
+var port = 8000;
+
+var res = _objectSpread({}, defaults, opts, {
+  port: port,
+  connect: function connect() {}
+});
+
+console.log(res); // Spread оператор для объектов
+// const a = { ...opts, ...defaults}
+// "Разворачивает" объект, превращая его в список свойсвт.
+// Можно комбинировать с любым другим синтаксисом создания объектов.
 
 /***/ }),
 /* 3 */
@@ -264,8 +239,8 @@ window.onload = function () {
   var tags = getRandomJoke.tags;
   document.getElementById('tags').innerHTML = tags.join(", ");
 };
-// EXTERNAL MODULE: ./src/scripts/objects.js
-var objects = __webpack_require__(2);
+// EXTERNAL MODULE: ./src/scripts/spread-operator-for-objects.js
+var spread_operator_for_objects = __webpack_require__(2);
 
 // EXTERNAL MODULE: ./src/css/style.css
 var style = __webpack_require__(3);
