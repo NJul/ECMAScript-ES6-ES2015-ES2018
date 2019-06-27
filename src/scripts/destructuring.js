@@ -1,3 +1,5 @@
+/* Є об'єкт, потрібно розбити кожен ключ на змінну.   */
+
 // Destructuring - Деструктуризация, объекта в нашем примере
 
 /* const person = {
@@ -37,13 +39,10 @@ console.log(first, last);
 */
 
 /* Переименуем извлеченные значения first будет называться firstName, находим поле name сохраняем first в firstName. */
-const {
-  name: {
-    first: firstName,
-    last: lastName
-  }
+/* const {
+  name: { first: firstName, last: lastName }
 } = person;
-console.log(firstName, lastName);
+console.log(firstName, lastName); */
 
 /* Присвоим свойство по умолчанию, если его нет в объекте */
 
@@ -53,59 +52,69 @@ console.log(firstName, lastName);
 // Но вложенность объектов не работает:
 // const { permissions: {role = 'user'}  } = person;
 // Но добавим значение по умолчанию permissions = {} пустой объект, и все тогда работает
-const {
-  permissions: {
-    role = "user"
-  } = {}
-} = person;
-console.log(role);
-
+/* const { permissions: { role = "user" } = {} } = person;
+console.log(role); */
 
 // Деструктуризация аргументов функции
 
-function connect({
+/* function connect({
   host = "localhost",
   port = 12345,
   user = "guest"
   // по умолчанию если объекта не было вообще, то объект будет пустым = {}:
 } = {}) {
-  console.log('user:', user, 'port:', port, 'host:', host);
-}
+  console.log("user:", user, "port:", port, "host:", host);
+} */
 
 // connect({});
 /* connect({
   port: 1111
 }); */
 // И все значения функции будут записаны по умолчанию
-connect();
+// connect();
 
-
-// 
-const dict = {
-  duck: 'quack',
-  dog: 'wuff',
-  mouse: 'squeak'
+//
+/* const dict = {
+  duck: "quack",
+  dog: "wuff",
+  mouse: "squeak"
 };
 
-const {
-  duck
-} = dict;
-console.log(duck);
+const { duck } = dict;
+console.log(duck); */
 
 // в otherAnimals попадут все остальные не деструктурированные значения, д.б. послдним в списке и один
-const {
-  duck,
-  ...otherAnimals
-} = dict;
-console.log(otherAnimals);
+/* const { duck, ...otherAnimals } = dict;
+console.log(otherAnimals); */
 
 // Деструктуризация
-const {
-  name,
-  age
-} = person;
+// const { name, age } = person;
 
 // Упрощает получение свойств из объектов
 // Поддерживает вложенность и значения по умолчанию
 // Работает с параметрами функций
 // Поддерживает rest element
+
+const user = {
+  _id: "da8Hkjsh098sKY",
+  name: "Test User",
+  services: { password: "apos8dfuoasidhfn8p9s7yf18" },
+  emails: [
+    { address: "test@test.com", verified: true },
+    { address: "test@test.com", verified: false }
+  ]
+};
+
+/* password = user.services.password */
+/* Розбиваєм services на частинки, її вже нема цілої */
+/* { services: {password} } = user */
+
+const {
+  _id,
+  name = "No name",
+  /* password = apos8dfuoasidhfn8p9s7yf18 */
+  services: { password },
+  emails
+} = user;
+let [email1, email2] = emails;
+console.log(email1);

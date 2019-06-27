@@ -1,3 +1,6 @@
+// default parameters
+// const someFunction = (a = {}, b = '', c = () => true) => {...};
+
 // Параметры по-умолчанию
 // (Default Parameters)
 

@@ -1,15 +1,15 @@
 // Spread operator for Objects - 2018 year
 
 const defaults = {
-  host: 'localhost',
-  dbName: 'blog',
-  user: 'admin'
+  host: "localhost",
+  dbName: "blog",
+  user: "admin"
 };
 
 /* Эти данные переданы от пользователя и должны быть более приоритетны параметров по умолчанию. Свойства из opts перезапишут свойсва defaults */
 const opts = {
-  user: 'john',
-  password: 'utopia'
+  user: "john",
+  password: "utopia"
 };
 
 // const result = Object.assign({}, defaults, opts);
@@ -22,7 +22,7 @@ const res = {
   ...defaults,
   ...opts,
   port,
-  connect() { }
+  connect() {}
 };
 
 console.log(res);
@@ -31,3 +31,17 @@ console.log(res);
 // const a = { ...opts, ...defaults}
 // "Разворачивает" объект, превращая его в список свойсвт.
 // Можно комбинировать с любым другим синтаксисом создания объектов.
+
+/* Раньше для создания объекта */
+// {a: a, b: b}
+/* Ключ буде мати назву a, і буде мати значення змінної а */
+/* {
+  a, b;
+} */
+
+/* key = "test";
+obj = {};
+obj[key] = 1;
+console.log(obj);
+
+{[key]: 1} */

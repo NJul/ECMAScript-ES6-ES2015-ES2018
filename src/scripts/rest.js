@@ -20,3 +20,8 @@ finction f(a, b, ...others) {}
 Должен быть последним в списке
 Максимум один rest-параметр в функции
 */
+
+// rest parameters
+// const logArgs = (...args) => console.log(args);
+
+// const withRestParams = (a, b, ...rest) => {...};
