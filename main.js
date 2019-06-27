@@ -180,52 +180,39 @@ module.exports = [{"body":"A recent study has found that women who carry a littl
 /* 2 */
 /***/ (function(module, exports) {
 
-/* Раньше */
-[1, 2, 3].map(function mapCb(i) {
-  return i + 2;
-}); // [3, 4, 5]
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
-/* Теперь */
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-[1, 2, 3].map(function (i) {
-  return i + 2;
-}); // [3, 4, 5]
+/* Всі однакові ключі заміняються правішими об'єктами, a: 2 правіше, тоді його значення перепише a: 1 */
+Object.assign({
+  a: 1,
+  b: 2
+}, {
+  a: 2,
+  c: 4
+}, {
+  y: 1
+}); // {a: 2, b: 2, c: 4, y: 1}
 
-/* У стрелочных функций нет своего контекста, берут родительский контекст. this нет. */
+/* І додаються нові значення, яких немає в першому об'єкті. Вона все змержить в один об'єкт. */
 
-function old() {
-  /* В контексте этой функции есть a */
-  this.a = 1;
-  /* Сохраняем в контекст переменную self */
+/* Повертає новий об'єкт. Глибока копія. */
 
-  /* const self = this; */
+var e = {
+  d: 2
+};
+var f = Object.assign({}, e);
+console.log(f);
+f.e = 5;
+console.log(e);
+/* Щоб не змінювати вхідні данні. Зберігається початкове значення. */
 
-  console.log(a);
+/* або це можна зробити через spred оператор ... Таким чином можна повністю скопіювати об'єкт. */
 
-  this.printA = function () {
-    return self.a; // a = 1, так как своего контекста у стр.ф. нет.
-  };
-}
+var g = _objectSpread({}, e);
 
-old();
-/* const getMovie = function (name, start) {
-  return `${name} ${start}`;
-}
-
-const getMovie2 = (name, start) => {
-  return `${name} ${start}`;
-}
-
-const getMovie3 = (name, start) => `${name} ${start}`;
-const getMovie4 = name => name;
-const getMovie5 = () => 'Averages5';
-
-
-console.log(getMovie('Averages', '2018'));
-console.log(getMovie2('Averages2', '2019'));
-console.log(getMovie3('Averages3', '2017'));
-console.log(getMovie4('Averages4'));
-console.log(getMovie5()); */
+console.log(e);
 
 /***/ }),
 /* 3 */
@@ -254,8 +241,8 @@ window.onload = function () {
   var tags = getRandomJoke.tags;
   document.getElementById('tags').innerHTML = tags.join(", ");
 };
-// EXTERNAL MODULE: ./src/scripts/arrow-functions-a.js
-var arrow_functions_a = __webpack_require__(2);
+// EXTERNAL MODULE: ./src/scripts/Object-dot-assign.js
+var Object_dot_assign = __webpack_require__(2);
 
 // EXTERNAL MODULE: ./src/css/style.css
 var style = __webpack_require__(3);
