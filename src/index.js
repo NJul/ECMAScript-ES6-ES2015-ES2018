@@ -1,5 +1,5 @@
 import "./scripts/script-joke";
 
-import "./scripts/spread-operator-for-objects";
+import "./scripts/ES6-features-scope-a.js";
 
 import "./css/style.css";

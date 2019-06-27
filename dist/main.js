@@ -180,37 +180,52 @@ module.exports = [{"body":"A recent study has found that women who carry a littl
 /* 2 */
 /***/ (function(module, exports) {
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+/*
+const and let
+arrow functions
+default parameters' values 
+spread operator
+destructing
+template literals
+enhanced object properties
+modules
+classes
+etc...
+*/
+var MINUTES_IN_HOUR = 60;
+var mutableValue = "Default value";
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+if (
+/* somethingIsTrue */
+mutableValue === "Default value") {
+  mutableValue = "Another value";
+}
 
-// Spread operator for Objects - 2018 year
-var defaults = {
-  host: 'localhost',
-  dbName: 'blog',
-  user: 'admin'
-};
-/* Эти данные переданы от пользователя и должны быть более приоритетны параметров по умолчанию. Свойства из opts перезапишут свойсва defaults */
+var x = 1;
 
-var opts = {
-  user: 'john',
-  password: 'utopia'
-}; // const result = Object.assign({}, defaults, opts);
+if (x === 1) {
+  var x = 2;
+}
 
-/* Раскрывается списко ключей - значений, которые будут присвоен другому объекту. */
-// const res = { ...defaults, ...opts };
+console.log(x); // 2
 
-var port = 8000;
+var a = 5;
 
-var res = _objectSpread({}, defaults, opts, {
-  port: port,
-  connect: function connect() {}
-});
+if (a === 5) {
+  var _a = 10;
+}
 
-console.log(res); // Spread оператор для объектов
-// const a = { ...opts, ...defaults}
-// "Разворачивает" объект, превращая его в список свойсвт.
-// Можно комбинировать с любым другим синтаксисом создания объектов.
+console.log(a);
+/* 5, scope, видимость let a = 10; только в блоке */
+
+/* Раньше ограничивали область видимости, (область памяти scope функции), переменной самовызывающейся функцией var так: Вернет результат, если написать return n, но далее n не определена. */
+
+/* (function module() {
+  var n = 1;
+  return n;
+})(); */
+// console.log(n);
+// n is not defined
 
 /***/ }),
 /* 3 */
@@ -239,8 +254,8 @@ window.onload = function () {
   var tags = getRandomJoke.tags;
   document.getElementById('tags').innerHTML = tags.join(", ");
 };
-// EXTERNAL MODULE: ./src/scripts/spread-operator-for-objects.js
-var spread_operator_for_objects = __webpack_require__(2);
+// EXTERNAL MODULE: ./src/scripts/ES6-features-scope-a.js
+var ES6_features_scope_a = __webpack_require__(2);
 
 // EXTERNAL MODULE: ./src/css/style.css
 var style = __webpack_require__(3);
