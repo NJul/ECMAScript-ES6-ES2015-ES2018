@@ -180,52 +180,52 @@ module.exports = [{"body":"A recent study has found that women who carry a littl
 /* 2 */
 /***/ (function(module, exports) {
 
-/*
-const and let
-arrow functions
-default parameters' values 
-spread operator
-destructing
-template literals
-enhanced object properties
-modules
-classes
-etc...
-*/
-var MINUTES_IN_HOUR = 60;
-var mutableValue = "Default value";
+/* Раньше */
+[1, 2, 3].map(function mapCb(i) {
+  return i + 2;
+}); // [3, 4, 5]
 
-if (
-/* somethingIsTrue */
-mutableValue === "Default value") {
-  mutableValue = "Another value";
+/* Теперь */
+
+[1, 2, 3].map(function (i) {
+  return i + 2;
+}); // [3, 4, 5]
+
+/* У стрелочных функций нет своего контекста, берут родительский контекст. this нет. */
+
+function old() {
+  /* В контексте этой функции есть a */
+  this.a = 1;
+  /* Сохраняем в контекст переменную self */
+
+  /* const self = this; */
+
+  console.log(a);
+
+  this.printA = function () {
+    return self.a; // a = 1, так как своего контекста у стр.ф. нет.
+  };
 }
 
-var x = 1;
-
-if (x === 1) {
-  var x = 2;
+old();
+/* const getMovie = function (name, start) {
+  return `${name} ${start}`;
 }
 
-console.log(x); // 2
-
-var a = 5;
-
-if (a === 5) {
-  var _a = 10;
+const getMovie2 = (name, start) => {
+  return `${name} ${start}`;
 }
 
-console.log(a);
-/* 5, scope, видимость let a = 10; только в блоке */
+const getMovie3 = (name, start) => `${name} ${start}`;
+const getMovie4 = name => name;
+const getMovie5 = () => 'Averages5';
 
-/* Раньше ограничивали область видимости, (область памяти scope функции), переменной самовызывающейся функцией var так: Вернет результат, если написать return n, но далее n не определена. */
 
-/* (function module() {
-  var n = 1;
-  return n;
-})(); */
-// console.log(n);
-// n is not defined
+console.log(getMovie('Averages', '2018'));
+console.log(getMovie2('Averages2', '2019'));
+console.log(getMovie3('Averages3', '2017'));
+console.log(getMovie4('Averages4'));
+console.log(getMovie5()); */
 
 /***/ }),
 /* 3 */
@@ -254,8 +254,8 @@ window.onload = function () {
   var tags = getRandomJoke.tags;
   document.getElementById('tags').innerHTML = tags.join(", ");
 };
-// EXTERNAL MODULE: ./src/scripts/ES6-features-scope-a.js
-var ES6_features_scope_a = __webpack_require__(2);
+// EXTERNAL MODULE: ./src/scripts/arrow-functions-a.js
+var arrow_functions_a = __webpack_require__(2);
 
 // EXTERNAL MODULE: ./src/css/style.css
 var style = __webpack_require__(3);
