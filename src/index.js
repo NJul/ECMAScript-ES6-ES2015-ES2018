@@ -1,5 +1,5 @@
 import "./scripts/script-joke";
 
-import "./scripts/Object-dot-assign.js";
+import "./scripts/String-dot-prototype-dot-startsWith.js";
 
 import "./css/style.css";
