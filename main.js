@@ -180,39 +180,28 @@ module.exports = [{"body":"A recent study has found that women who carry a littl
 /* 2 */
 /***/ (function(module, exports) {
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+var s = "test1";
+s.startsWith("te"); // true
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+/* Якщо стрічка починається з такого словополучення, то поверне true, інакше false */
 
-/* Всі однакові ключі заміняються правішими об'єктами, a: 2 правіше, тоді його значення перепише a: 1 */
-Object.assign({
-  a: 1,
-  b: 2
-}, {
-  a: 2,
-  c: 4
-}, {
-  y: 1
-}); // {a: 2, b: 2, c: 4, y: 1}
+s.repeat(4); // Раніше
 
-/* І додаються нові значення, яких немає в першому об'єкті. Вона все змержить в один об'єкт. */
+s.indexOf("est"); // 1
 
-/* Повертає новий об'єкт. Глибока копія. */
+s.indexOf("st"); // 2
 
-var e = {
-  d: 2
-};
-var f = Object.assign({}, e);
-console.log(f);
-f.e = 5;
-console.log(e);
-/* Щоб не змінювати вхідні данні. Зберігається початкове значення. */
+s.indexOf("st") > -1; // true
+// Зараз
 
-/* або це можна зробити через spred оператор ... Таким чином можна повністю скопіювати об'єкт. */
+s.includes("st"); // true
 
-var g = _objectSpread({}, e);
+var str = "Быть или не быть, вот в чём вопрос.";
+console.log(str.startsWith("Быть")); // true
 
-console.log(e);
+console.log(str.startsWith("не быть")); // false
+
+console.log(str.startsWith("не быть", 9)); // true
 
 /***/ }),
 /* 3 */
@@ -241,8 +230,8 @@ window.onload = function () {
   var tags = getRandomJoke.tags;
   document.getElementById('tags').innerHTML = tags.join(", ");
 };
-// EXTERNAL MODULE: ./src/scripts/Object-dot-assign.js
-var Object_dot_assign = __webpack_require__(2);
+// EXTERNAL MODULE: ./src/scripts/String-dot-prototype-dot-startsWith.js
+var String_dot_prototype_dot_startsWith = __webpack_require__(2);
 
 // EXTERNAL MODULE: ./src/css/style.css
 var style = __webpack_require__(3);
