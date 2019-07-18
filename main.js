@@ -180,28 +180,53 @@ module.exports = [{"body":"A recent study has found that women who carry a littl
 /* 2 */
 /***/ (function(module, exports) {
 
-var s = "test1";
-s.startsWith("te"); // true
+// метод arr.map(callback[,thisArg])
+var numbers = [1, 4, 9];
+var roots = numbers.map(Math.sqrt);
+console.log(numbers);
+console.log(roots); // теперь roots равен [1, 2, 3], а numbers все еще равен [1, 4, 9]
 
-/* Якщо стрічка починається з такого словополучення, то поверне true, інакше false */
+var doubles = numbers.map(function (num) {
+  return num * 2;
+});
+console.log(numbers);
+console.log(doubles);
+var names = ["HTML", "CSS", "JavaScript", "PHP"];
+var nameLengths = names.map(function (name) {
+  return name.length;
+}); // получили массив с длинами
 
-s.repeat(4); // Раніше
+console.log(nameLengths);
+/* Click the button to get the square root of each element in the array. */
 
-s.indexOf("est"); // 1
+numbers = [4, 9, 16, 25];
+console.log(numbers);
 
-s.indexOf("st"); // 2
+document.getElementById("button1").onclick = function () {
+  document.getElementById("squareRoot").innerHTML = numbers.map(Math.sqrt).join(", ");
+};
+/* Get the full name for each person in the array: */
 
-s.indexOf("st") > -1; // true
-// Зараз
 
-s.includes("st"); // true
+var persons = [{
+  firstname: "Malcom",
+  lastname: "Reynolds"
+}, {
+  firstname: "Kaylee",
+  lastname: "Frye"
+}, {
+  firstname: "Jayne",
+  lastname: "Cobb"
+}];
 
-var str = "Быть или не быть, вот в чём вопрос.";
-console.log(str.startsWith("Быть")); // true
+function getFullName(item) {
+  var fullname = " " + [item.firstname, item.lastname].join(" ");
+  return fullname;
+}
 
-console.log(str.startsWith("не быть")); // false
-
-console.log(str.startsWith("не быть", 9)); // true
+document.getElementById("button2").onclick = function fullname() {
+  document.getElementById("fullname").innerHTML = persons.map(getFullName);
+};
 
 /***/ }),
 /* 3 */
@@ -230,8 +255,8 @@ window.onload = function () {
   var tags = getRandomJoke.tags;
   document.getElementById('tags').innerHTML = tags.join(", ");
 };
-// EXTERNAL MODULE: ./src/scripts/String-dot-prototype-dot-startsWith.js
-var String_dot_prototype_dot_startsWith = __webpack_require__(2);
+// EXTERNAL MODULE: ./src/scripts/map.js
+var map = __webpack_require__(2);
 
 // EXTERNAL MODULE: ./src/css/style.css
 var style = __webpack_require__(3);
