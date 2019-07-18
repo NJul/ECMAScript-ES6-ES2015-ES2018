@@ -180,28 +180,33 @@ module.exports = [{"body":"A recent study has found that women who carry a littl
 /* 2 */
 /***/ (function(module, exports) {
 
-var s = "test1";
-s.startsWith("te"); // true
+// ES6 Classes Prototypal Inheritance
+function Employee(id) {
+  this.id = id;
+}
 
-/* Якщо стрічка починається з такого словополучення, то поверне true, інакше false */
+Employee.prototype.showId = function () {
+  console.log("My id number is ".concat(this.id));
+};
 
-s.repeat(4); // Раніше
+var John = new Employee(23);
+console.log(John);
+John.showId();
 
-s.indexOf("est"); // 1
+function Manager(name, department) {
+  this.name = name;
+  this.department = department;
+}
 
-s.indexOf("st"); // 2
+Manager.prototype.callMeeting = function () {
+  console.log("I'm calling a meeting");
+};
+/* У Сары есть метод callMeeting */
 
-s.indexOf("st") > -1; // true
-// Зараз
 
-s.includes("st"); // true
-
-var str = "Быть или не быть, вот в чём вопрос.";
-console.log(str.startsWith("Быть")); // true
-
-console.log(str.startsWith("не быть")); // false
-
-console.log(str.startsWith("не быть", 9)); // true
+var Sara = new Manager("Sara", "sales");
+Sara.callMeeting();
+console.log(Sara);
 
 /***/ }),
 /* 3 */
@@ -230,8 +235,8 @@ window.onload = function () {
   var tags = getRandomJoke.tags;
   document.getElementById('tags').innerHTML = tags.join(", ");
 };
-// EXTERNAL MODULE: ./src/scripts/String-dot-prototype-dot-startsWith.js
-var String_dot_prototype_dot_startsWith = __webpack_require__(2);
+// EXTERNAL MODULE: ./src/scripts/ES6-Classes.js
+var ES6_Classes = __webpack_require__(2);
 
 // EXTERNAL MODULE: ./src/css/style.css
 var style = __webpack_require__(3);
