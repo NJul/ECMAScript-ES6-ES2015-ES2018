@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -230,12 +230,136 @@ document.getElementById("button2").onclick = function fullname() {
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports) {
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+// ES6 Classes Prototypal Inheritance
+function Employee(id) {
+  this.id = id;
+}
+
+Employee.prototype.showId = function () {
+  console.log("My id number is ".concat(this.id));
+};
+
+var John = new Employee(23);
+console.log(John);
+John.showId();
+
+function Manager(name, department) {
+  this.name = name;
+  this.department = department;
+}
+
+Manager.prototype.callMeeting = function () {
+  console.log("I'm calling a meeting");
+};
+/* У Сары есть метод callMeeting */
+
+
+var Sara = new Manager("Sara", "sales");
+Sara.callMeeting();
+console.log(Sara);
+/* Classes, properties and methods */
+
+/* class Human {
+  constructor() {
+    this.gender = "male";
+  }
+
+  printGender() {
+    console.log(this.gender);
+  }
+}
+
+class Person extends Human {
+  constructor() {
+    super();
+    this.name = "Max";
+    this.gender = "female";
+  }
+
+  printMyName() {
+    console.log(this.name);
+  }
+}
+
+const person = new Person();
+person.printMyName();
+person.printGender(); */
+// ES7, constructor удаляем
+
+var Human = function Human() {
+  var _this = this;
+
+  _classCallCheck(this, Human);
+
+  _defineProperty(this, "gender", "male");
+
+  _defineProperty(this, "printGender", function () {
+    console.log(_this.gender);
+  });
+};
+
+var Person =
+/*#__PURE__*/
+function (_Human) {
+  _inherits(Person, _Human);
+
+  function Person() {
+    var _getPrototypeOf2;
+
+    var _this2;
+
+    _classCallCheck(this, Person);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this2 = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Person)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this2), "name", "Max");
+
+    _defineProperty(_assertThisInitialized(_this2), "gender", "female");
+
+    _defineProperty(_assertThisInitialized(_this2), "printMyName", function () {
+      console.log(_this2.name);
+    });
+
+    return _this2;
+  }
+
+  return Person;
+}(Human);
+
+var person = new Person();
+person.printMyName();
+person.printGender();
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -258,10 +382,14 @@ window.onload = function () {
 // EXTERNAL MODULE: ./src/scripts/map.js
 var map = __webpack_require__(2);
 
+// EXTERNAL MODULE: ./src/scripts/ES6-Classes.js
+var ES6_Classes = __webpack_require__(3);
+
 // EXTERNAL MODULE: ./src/css/style.css
-var style = __webpack_require__(3);
+var style = __webpack_require__(4);
 
 // CONCATENATED MODULE: ./src/index.js
+
 
 
 
