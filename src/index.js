@@ -1,7 +1,7 @@
 import "./scripts/script-joke";
 
-import "./scripts/map.js";
+import "./scripts/map";
 
-import "./scripts/arrow-functions-a.js";
+import "./scripts/ES6-Classes";
 
 import "./css/style.css";

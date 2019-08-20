@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+  <title>ECMAScript</title>
+<link href="main.css" rel="stylesheet"></head>
+
+<body>
+  <div class="container">
+    <h1>Модули</h1>
+    <p>import {a, b as c} from './file';</p>
+    <p>import X from './file';</p>
+    <p>import * as lib from './file';</p>
+
+    <p>
+      export {a, b, c as d}
+    </p>
+    <p>
+      export default Z;
+    </p>
+
+    <h3>Get Random Joke</h3>
+    <div id="joke" class="joke"></div>
+    <div id="tags" class="tags"></div>
+
+    <h2>ES6 features</h2>
+    <p>const and let</p>
+    <p>arrow functions</p>
+    <p>default parameters' values</p>
+    <p>spread operator</p>
+    <p>destructing</p>
+    <p>template literals</p>
+    <p>enhanced object properties</p>
+    <p>modules</p>
+    <p>classes</p>
+    <p>etc...</p>
+
+    <h2>New built-in methods</h2>
+    <!-- мержить два об'єкти між собою: -->
+    <p>Object.assign</p>
+    <p>Object.keys</p>
+    <!-- Методи для пошуку в масиві по якійсь умові -->
+    <p>Array.prototype.find</p>
+    <p>Array.prototype.findIndex</p>
+    <!-- Використовуються для пошуку якогось тексту в стрічці -->
+    <p>String.prototype.repeat</p>
+    <p>String.prototype.startsWith</p>
+    <p>String.prototype.endsWith</p>
+    <p>String.prototype.includes</p>
+
+    <h2>Array methods</h2>
+    <p>concat</p>
+    <p>copyWithin</p>
+    <p>every / some</p>
+    <p>fill</p>
+    <p>filter</p>
+    <p>find</p>
+    <p>findIndex</p>
+    <p>forEach</p>
+    <p>from</p>
+    <p>includes</p>
+    <p>slice</p>
+    <p>sort</p>
+    <hr>
+    <p>join</p>
+    <p>map</p>
+    <p>Click the button to get the square root of each element in the array [4, 9, 16, 25].</p>
+    <button type="button" id="button1" class="button1">Square root</button>
+    <p id="squareRoot"></p>
+    <p>Get the full name for each person in the array.</p>
+    <button type="button" id="button2" class="button1">Full name</button>
+    <p id="fullname"></p>
+    <hr>
+    <p>reduce / reduceRight</p>
+  </div>
+<script src="main.js"></script></body>
+
+</html>
