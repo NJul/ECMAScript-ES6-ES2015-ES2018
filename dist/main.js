@@ -236,9 +236,9 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -246,9 +246,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 // ES6 Classes Prototypal Inheritance
 function Employee(id) {
@@ -279,24 +277,44 @@ Sara.callMeeting();
 console.log(Sara);
 /* Classes, properties and methods */
 
-var Human =
-/*#__PURE__*/
-function () {
-  function Human() {
-    _classCallCheck(this, Human);
-
+/* class Human {
+  constructor() {
     this.gender = "male";
   }
 
-  _createClass(Human, [{
-    key: "printGender",
-    value: function printGender() {
-      console.log(this.gender);
-    }
-  }]);
+  printGender() {
+    console.log(this.gender);
+  }
+}
 
-  return Human;
-}();
+class Person extends Human {
+  constructor() {
+    super();
+    this.name = "Max";
+    this.gender = "female";
+  }
+
+  printMyName() {
+    console.log(this.name);
+  }
+}
+
+const person = new Person();
+person.printMyName();
+person.printGender(); */
+// ES7, constructor удаляем
+
+var Human = function Human() {
+  var _this = this;
+
+  _classCallCheck(this, Human);
+
+  _defineProperty(this, "gender", "male");
+
+  _defineProperty(this, "printGender", function () {
+    console.log(_this.gender);
+  });
+};
 
 var Person =
 /*#__PURE__*/
@@ -304,22 +322,28 @@ function (_Human) {
   _inherits(Person, _Human);
 
   function Person() {
-    var _this;
+    var _getPrototypeOf2;
+
+    var _this2;
 
     _classCallCheck(this, Person);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Person).call(this));
-    _this.name = "Max";
-    _this.gender = "female";
-    return _this;
-  }
-
-  _createClass(Person, [{
-    key: "printMyName",
-    value: function printMyName() {
-      console.log(this.name);
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
     }
-  }]);
+
+    _this2 = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Person)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this2), "name", "Max");
+
+    _defineProperty(_assertThisInitialized(_this2), "gender", "female");
+
+    _defineProperty(_assertThisInitialized(_this2), "printMyName", function () {
+      console.log(_this2.name);
+    });
+
+    return _this2;
+  }
 
   return Person;
 }(Human);

@@ -25,7 +25,8 @@ Sara.callMeeting();
 console.log(Sara);
 
 /* Classes, properties and methods */
-class Human {
+
+/* class Human {
   constructor() {
     this.gender = "male";
   }
@@ -45,6 +46,28 @@ class Person extends Human {
   printMyName() {
     console.log(this.name);
   }
+}
+
+const person = new Person();
+person.printMyName();
+person.printGender(); */
+
+// ES7, constructor удаляем
+class Human {
+  gender = "male";
+
+  printGender = () => {
+    console.log(this.gender);
+  };
+}
+
+class Person extends Human {
+  name = "Max";
+  gender = "female";
+
+  printMyName = () => {
+    console.log(this.name);
+  };
 }
 
 const person = new Person();
