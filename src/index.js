@@ -2,6 +2,7 @@ import "./scripts/script-joke";
 
 import "./scripts/map";
 
-import "./scripts/ES6-Classes";
+import "./scripts/spred-rest";
+import "./scripts/destructuring";
 
 import "./css/style.css";

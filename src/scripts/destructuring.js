@@ -118,3 +118,17 @@ const {
 } = user;
 let [email1, email2] = emails;
 console.log(email1);
+
+// Destructuring array
+[a, b] = ["Hello", "Max"];
+console.log(a); // Hello
+console.log(b); // Max
+
+const numbers = [1, 2, 3];
+[num1, , num3] = numbers;
+console.log(num1, num3); // 1 3
+
+// object destructuring
+// {name} = {name: 'Max', age: 28};
+// console.log(name); // Max
+// console.log(age); // undefined
