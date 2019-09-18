@@ -1,5 +1,6 @@
 // Rest parameter
 // Обязан идти последним, должен быть только один rest parameter
+/*  */
 
 function max(a, b, ...numbers) {
   console.log(numbers);
@@ -25,3 +26,16 @@ finction f(a, b, ...others) {}
 // const logArgs = (...args) => console.log(args);
 
 // const withRestParams = (a, b, ...rest) => {...};
+
+function max(...numbers) {
+  console.log(numbers);
+}
+max(3, 4, 67);
+
+function max(a, b, ...numbers) {
+  console.log(numbers);
+}
+max(3, 4, 67, 97);
+// сворачивает в один массив
+// a = 3, b = 4
+// [67, 97]

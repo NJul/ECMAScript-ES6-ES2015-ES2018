@@ -38,3 +38,11 @@ console.log(
   lastName
 }`;
 console.log(query); */
+
+/** */
+function fetchData(data, count = 0) {
+  /* До ES6: Такая проверка логическим оператором или возвращает только первое значение, которое будет правдой, если аргумент не передан, будет взято значение 0 */
+  // count = count || 0;
+  console.log(`Даные: ${data} в количестве ${count}`);
+}
+fetchData("something");
